@@ -1,0 +1,22 @@
+{
+  "name": "salesforce-pugin",
+  "version": "0.0.1",
+  "description": "moosend salesforce plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Gent Gashi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4"
+  }
+}
