@@ -6,8 +6,9 @@ import * as config from 'config';
 import routes from '../routes/routes';
 import accessAllowOrigin from '../middleware/accessAllowOrigin';
 import handleErrors from '../middleware/handleErrors';
-
 var app = express();
+
+app.use('/api/doc', express.static(path.join(__dirname, '/../../doc')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

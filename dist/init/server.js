@@ -1,4 +1,5 @@
 "use strict";
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var config = require('config');
@@ -6,6 +7,7 @@ var routes_1 = require('../routes/routes');
 var accessAllowOrigin_1 = require('../middleware/accessAllowOrigin');
 var handleErrors_1 = require('../middleware/handleErrors');
 var app = express();
+app.use('/api/doc', express.static(path.join(__dirname, '/../../doc')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //middleware

@@ -13,7 +13,40 @@ import oauthPostHandler from '../handlers/oauthPostHandler';
 
 export default function routes(app){
 
-    //required plugin routes
+    /**
+     * @api {get} /api/plugin/details Request Plugin Details
+     *
+     * @apiName GetDetails
+     * @apiGroup Plugin Info
+     *
+     * @apiSuccess {String} Name Name of the plugin.
+     * @apiSuccess {String} Description  Description of the plugin.
+     * @apiSuccess {String} Image  Image thumbnail.
+     * @apiSuccess {Boolean} NeedsAuth   true.
+     * @apiSuccess {Boolean} HasFilters   true.
+     * @apiSuccess {String} PluginType   '1'.
+     * @apiSuccess {String} PluginTypeDescription   'oauth2-api'.
+     *
+     *  @apiSuccessExample Success-Response:
+     *     HTTP/1.1 200 OK
+     *     {
+     *          "Name": "Salesforce Plugin",
+     *          "Description": "Plugin Description",
+     *          "Image": "",
+     *          "NeedsAuth": true,
+     *          "HasFilters": true,
+     *          "PluginType": 3,
+     *          "PluginTypeDescription": "oauth2-api"
+     *     }
+     *
+     * @apiErrorExample Error-Response:
+     *     HTTP/1.1 500 Server Error
+     *     {
+     *          "message": "Server Error",
+     *          "status": "500"
+     *     }
+     *
+     */
     app.get('/api/plugin/details', detailsGetHandler);
 
     app.get('/api/plugin/authspec', authspecGetHandler);
