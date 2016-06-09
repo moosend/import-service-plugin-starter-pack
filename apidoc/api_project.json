@@ -1,4 +1,4 @@
-define({
+{
   "name": "salesforce-plugin",
   "version": "0.0.1",
   "description": "Salesforce plugin api docs",
@@ -10,8 +10,8 @@ define({
   "apidoc": "0.2.0",
   "generator": {
     "name": "apidoc",
-    "time": "2016-06-08T19:58:30.240Z",
+    "time": "2016-06-09T18:16:21.111Z",
     "url": "http://apidocjs.com",
     "version": "0.16.1"
   }
-});
+}

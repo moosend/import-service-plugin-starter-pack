@@ -1,7 +1,7 @@
 import express = require('express');
 import {Error} from '../util/errors/Errors';
 
-export default function handleErrors(err: Error, req: express.Request, res: express.Response, next: Function) {
+export default function handleErrorsMW(err: Error, req: express.Request, res: express.Response, next: Function) {
 
     if(err){
         res.status(err.status);
@@ -9,6 +9,5 @@ export default function handleErrors(err: Error, req: express.Request, res: expr
     }else{
         next();
     }
-
 
 }

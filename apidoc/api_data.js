@@ -1,10 +1,11 @@
-[
+define({ "api": [
   {
     "type": "get",
     "url": "/api/plugin/details",
     "title": "Request Plugin Details",
     "name": "GetDetails",
     "group": "Plugin_Info",
+    "version": "0.0.1",
     "success": {
       "fields": {
         "Success 200": [
@@ -71,13 +72,12 @@
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "HTTP/1.1 404 Not Found\n{\n     \"message\": \"Server Error\",\n     \"status\": \"500\"\n}",
+          "content": "HTTP/1.1 500 Server Error\n{\n     \"message\": \"Server Error\",\n     \"status\": \"500\"\n}",
           "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
     "filename": "dist/routes/routes.js",
     "groupTitle": "Plugin_Info"
   }
-]
+] });

@@ -7,13 +7,14 @@ var routes_1 = require('../routes/routes');
 var accessAllowOrigin_1 = require('../middleware/accessAllowOrigin');
 var handleErrors_1 = require('../middleware/handleErrors');
 var app = express();
-app.use('/api/doc', express.static(path.join(__dirname, '/../../doc')));
+app.use('/api/doc', express.static(path.join(__dirname, '/../../apidoc')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 //middleware
 app.use(accessAllowOrigin_1["default"]);
 //router
 routes_1["default"](app);
+//last middleware in order to handle the errors
 app.use(handleErrors_1["default"]);
 function start(cb) {
     if (cb === void 0) { cb = null; }

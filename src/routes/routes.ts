@@ -18,6 +18,7 @@ export default function routes(app){
      *
      * @apiName GetDetails
      * @apiGroup Plugin Info
+     * @apiVersion 0.0.1
      *
      * @apiSuccess {String} Name Name of the plugin.
      * @apiSuccess {String} Description  Description of the plugin.
@@ -62,7 +63,7 @@ export default function routes(app){
     app.post('/api/plugin/oauth', oauthPostHandler);
 
     //default
-    app.get('*', (req: express.Request, res: express.Response, next:(err: Error)=>{}) => {
+    app.get('*', (req: express.Request, res: express.Response, next:(err: Error) => any) => {
         return next({message: '404 Not found', status: 404});
-    })
+    });
 }

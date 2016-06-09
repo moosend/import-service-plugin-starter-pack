@@ -4,24 +4,25 @@ import * as bodyParser from 'body-parser';
 import * as config from 'config';
 
 import routes from '../routes/routes';
-import accessAllowOrigin from '../middleware/accessAllowOrigin';
-import handleErrors from '../middleware/handleErrors';
+import accessAllowOriginMW from '../middleware/accessAllowOrigin';
+import handleErrorsMW from '../middleware/handleErrors';
 var app = express();
 
-app.use('/api/doc', express.static(path.join(__dirname, '/../../doc')));
+app.use('/api/doc', express.static(path.join(__dirname, '/../../apidoc')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //middleware
-app.use(accessAllowOrigin);
+app.use(accessAllowOriginMW);
 
 //router
 routes(app);
 
-app.use(handleErrors);
+//last middleware in order to handle the errors
+app.use(handleErrorsMW);
 
-export function start(cb:Function = null){
+export function start(cb:() => void = null){
 
     const port: number = Number(config.get('port'));
     const host: string = String(config.get('host'));
