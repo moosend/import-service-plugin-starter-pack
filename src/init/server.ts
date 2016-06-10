@@ -4,8 +4,8 @@ import * as bodyParser from 'body-parser';
 import * as config from 'config';
 
 import routes from '../routes/routes';
-import accessAllowOriginMW from '../middleware/accessAllowOrigin';
-import handleErrorsMW from '../middleware/handleErrors';
+import accessAllowOriginMW from '../middleware/accessAllowOriginMW';
+import handleErrorsMW from '../middleware/handleErrorsMW';
 var app = express();
 
 app.use('/api/doc', express.static(path.join(__dirname, '/../../apidoc')));
@@ -24,8 +24,8 @@ app.use(handleErrorsMW);
 
 export function start(cb:() => void = null){
 
-    const port: number = Number(config.get('port'));
-    const host: string = String(config.get('host'));
+    const port: number = <number>config.get('port');
+    const host: string = <string>config.get('host');
 
     const server = app.listen(port, host, () => {
         const host = server.address().address;

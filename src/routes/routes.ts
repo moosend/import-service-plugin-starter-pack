@@ -14,6 +14,8 @@ import oauthPostHandler from '../handlers/oauthPostHandler';
 export default function routes(app){
 
     /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     *
      * @api {get} /api/plugin/details Request Plugin Details
      *
      * @apiName GetDetails
@@ -50,16 +52,35 @@ export default function routes(app){
      */
     app.get('/api/plugin/details', detailsGetHandler);
 
+    /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     */
     app.get('/api/plugin/authspec', authspecGetHandler);
 
-    app.post('/api/plugin/auth', authPostHandler);
-
+    /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     */
     app.post('/api/plugin/filterspec', filterspecPostHandler);
 
+    /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     */
     app.post('/api/plugin/memberdata', memberdataPostHandler);
 
+    /**
+     *  For 'oauth2-api' type plugin
+     */
     app.get('/api/plugin/oauth?code=', oauthGetHandler);
 
+    /**
+     *  For 'api' type plugin
+     */
+    app.post('/api/plugin/auth', authPostHandler);
+
+
+    /**
+    *  For 'oauth2-api' type plugin
+    */
     app.post('/api/plugin/oauth', oauthPostHandler);
 
     //default

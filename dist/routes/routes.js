@@ -9,6 +9,8 @@ var oauthGetHandler_1 = require('../handlers/oauthGetHandler');
 var oauthPostHandler_1 = require('../handlers/oauthPostHandler');
 function routes(app) {
     /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     *
      * @api {get} /api/plugin/details Request Plugin Details
      *
      * @apiName GetDetails
@@ -44,11 +46,29 @@ function routes(app) {
      *
      */
     app.get('/api/plugin/details', detailsGetHandler_1["default"]);
+    /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     */
     app.get('/api/plugin/authspec', authspecGetHandler_1["default"]);
-    app.post('/api/plugin/auth', authPostHandler_1["default"]);
+    /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     */
     app.post('/api/plugin/filterspec', filterspecPostHandler_1["default"]);
+    /**
+     *  For 'api', 'oauth2-api' and 'file' type plugins
+     */
     app.post('/api/plugin/memberdata', memberdataPostHandler_1["default"]);
+    /**
+     *  For 'oauth2-api' type plugin
+     */
     app.get('/api/plugin/oauth?code=', oauthGetHandler_1["default"]);
+    /**
+     *  For 'api' type plugin
+     */
+    app.post('/api/plugin/auth', authPostHandler_1["default"]);
+    /**
+    *  For 'oauth2-api' type plugin
+    */
     app.post('/api/plugin/oauth', oauthPostHandler_1["default"]);
     //default
     app.get('*', function (req, res, next) {
