@@ -4,10 +4,11 @@
   "description": "moosend salesforce plugin",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && mocha ./tests/**/*.spec.js",
+    "test": "mocha ./dist/tests/**/*.spec.js",
     "generate-apidoc": "apidoc -i dist/routes/ -o apidoc/",
-    "build": "tsc ./src/index.ts --outDir ./dist/ --module commonjs",
-    "ts-watch": "tsc ./src/index.ts --outDir dist/ --module commonjs -w",
+    "build": "tsc",
+    "build-tests": "tsc -p ./src/tests --outDir ./test/ --module commonjs",
+    "ts-watch": "tsc -w",
     "server-dev": "nodemon dist/index.js ",
     "start": "node dist/index.js"
   },
@@ -20,6 +21,7 @@
     "debug": "^2.2.0",
     "express": "^4.13.4",
     "keymirror": "^0.1.1",
+    "node-uuid": "^1.4.7",
     "winston": "^2.2.0"
   },
   "devDependencies": {

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "moduleResolution": "node"
+  },
+  "filesGlob": [
+    "src/**/*.ts",
+    "typings/index.d.ts"
+  ]
+}

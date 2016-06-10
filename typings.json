@@ -1,7 +1,8 @@
 {
   "name": "salesforce-pugin",
   "dependencies": {
-    "debug": "registry:npm/debug#2.0.0+20160511151334"
+    "debug": "registry:npm/debug#2.0.0+20160511151334",
+    "node-uuid": "registry:npm/node-uuid#1.4.7+20160503013124"
   },
   "globalDependencies": {
     "axios": "registry:dt/axios#0.9.1+20160317120654",

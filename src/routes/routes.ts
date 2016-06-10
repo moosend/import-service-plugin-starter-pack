@@ -11,7 +11,7 @@ import memberdataPostHandler from '../handlers/memberdataPostHandler';
 import oauthGetHandler from '../handlers/oauthGetHandler';
 import oauthPostHandler from '../handlers/oauthPostHandler';
 
-export default function routes(app){
+export default function routes(app: express.Express){
 
     /**
      *  For 'api', 'oauth2-api' and 'file' type plugins

@@ -6,7 +6,9 @@ import * as config from 'config';
 import routes from '../routes/routes';
 import accessAllowOriginMW from '../middleware/accessAllowOriginMW';
 import handleErrorsMW from '../middleware/handleErrorsMW';
-var app = express();
+
+
+var app: express.Express = express();
 
 app.use('/api/doc', express.static(path.join(__dirname, '/../../apidoc')));
 

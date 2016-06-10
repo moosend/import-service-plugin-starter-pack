@@ -10,11 +10,8 @@ var app = express();
 app.use('/api/doc', express.static(path.join(__dirname, '/../../apidoc')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//middleware
 app.use(accessAllowOriginMW_1["default"]);
-//router
 routes_1["default"](app);
-//last middleware in order to handle the errors
 app.use(handleErrorsMW_1["default"]);
 function start(cb) {
     if (cb === void 0) { cb = null; }
