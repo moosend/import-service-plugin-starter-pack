@@ -1,7 +1,7 @@
 {
-  "name": "salesforce-pugin",
+  "name": "import-service-starter-pack",
   "version": "0.0.1",
-  "description": "moosend salesforce plugin",
+  "description": "import-service-starter-pack",
   "main": "index.js",
   "scripts": {
     "test": "mocha ./dist/tests/**/*.spec.js",
