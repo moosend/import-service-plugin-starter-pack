@@ -1,6 +1,5 @@
 
 import * as express from 'express';
-import {Error} from '../util/errors/Errors';
 
 //route handlers
 import detailsGetHandler from '../handlers/detailsGetHandler';
@@ -92,7 +91,7 @@ export default function routes(app: express.Express){
     app.post('/api/plugin/oauth', oauthPostHandler);
 
     //default
-    app.get('*', (req: express.Request, res: express.Response, next:(err: Error) => any) => {
+    app.get('*', (req: express.Request, res: express.Response, next:(err: any) => any) => {
         return next({message: '404 Not found', status: 404});
     });
 }
