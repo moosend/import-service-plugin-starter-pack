@@ -1,16 +1,18 @@
 {
-  "name": "import-service-starter-pack",
-  "version": "0.0.1",
-  "description": "import-service-starter-pack",
+  "name": "salesforce-pugin",
+  "version": "0.5.0",
+  "description": "moosend salesforce plugin",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./dist/tests/**/*.spec.js",
+    "test": "SET NODE_ENV=test&& mocha ./dist/tests/**/*.spec.js",
+    "test-coverage": "SET NODE_ENV=test&& istanbul cover node_modules/mocha/bin/_mocha -- -R spec ./dist/tests/**/*.spec.js",
+    "debug": "SET NODE_ENV=debug&& node-debug ./dist/index.js",
     "generate-apidoc": "apidoc -i dist/routes/ -o apidoc/",
-    "build": "tsc",
-    "build-tests": "tsc -p ./src/tests --outDir ./test/ --module commonjs",
-    "ts-watch": "tsc -w",
-    "server-dev": "nodemon dist/index.js ",
-    "start": "node dist/index.js"
+    "build": "tsc --pretty",
+    "ts-watch": "tsc -w --pretty",
+    "server-dev": "npm run build && SET NODE_ENV=development&& nodemon dist/index.js ",
+    "start-dev": "tsc --pretty && concurrently \"npm run ts-watch\" \"npm run server-dev\" ",
+    "deploy": "npm run build && SET NODE_ENV=production&& node dist/index.js"
   },
   "author": "Gent Gashi",
   "license": "ISC",
@@ -25,9 +27,12 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "concurrently": "^2.0.0",
     "apidoc": "^0.16.1",
     "chai": "^3.5.0",
+    "istanbul": "^0.4.3",
     "mocha": "^2.5.3",
+    "node-inspector": "^0.12.8",
     "nodemon": "^1.9.2",
     "sinon": "^1.17.4",
     "typescript": "^1.8.10"

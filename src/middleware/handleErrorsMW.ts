@@ -1,8 +1,8 @@
 import express = require('express');
-import {Error} from '../util/errors/Errors';
 
-export default function handleErrorsMW(err: Error, req: express.Request, res: express.Response, next: Function) {
+export default function handleErrorsMW(err: any, req: express.Request, res: express.Response, next: Function) {
 
+    //handle errors as you please, this is just a stupid example
     if(err){
         res.status(err.status);
         res.json(err);

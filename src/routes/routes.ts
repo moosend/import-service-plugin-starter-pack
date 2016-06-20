@@ -10,10 +10,13 @@ import filterspecPostHandler from '../handlers/filterspecPostHandler';
 import memberdataPostHandler from '../handlers/memberdataPostHandler';
 import oauthGetHandler from '../handlers/oauthGetHandler';
 import oauthPostHandler from '../handlers/oauthPostHandler';
+import filterspecGetHandler from '../handlers/filterspecGetHandler';
 
 export default function routes(app: express.Express){
 
     /**
+     * EXAMPLE APIDOCS
+     *
      *  For 'api', 'oauth2-api' and 'file' type plugins
      *
      * @api {get} /api/plugin/details Request Plugin Details
@@ -58,9 +61,14 @@ export default function routes(app: express.Express){
     app.get('/api/plugin/authspec', authspecGetHandler);
 
     /**
-     *  For 'api', 'oauth2-api' and 'file' type plugins
+     *  For 'api', 'oauth2-api'  type plugins
      */
     app.post('/api/plugin/filterspec', filterspecPostHandler);
+
+    /**
+     *  For 'file' type plugins filterspec must be a get
+     */
+    app.get('/api/plugin/filterspec', filterspecGetHandler);
 
     /**
      *  For 'api', 'oauth2-api' and 'file' type plugins

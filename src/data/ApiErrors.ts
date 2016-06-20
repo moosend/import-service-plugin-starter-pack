@@ -4,14 +4,14 @@
  Example validation error object:
 
  {
-    "ValidationErrors": [
-         {
-             "Field": "AuthString",
-             "Message": "Cannot be empty"
-         }
-     ],
-     "Code": -1,
-     "Service": "Template Api Plugin"
+ "ValidationErrors": [
+ {
+ "Field": "AuthString",
+ "Message": "Cannot be empty"
+ }
+ ],
+ "Code": -1,
+ "Service": "Template Api Plugin"
  }
 
  */
@@ -32,4 +32,11 @@ export interface ApiValidationErrorResponse {
 export interface ApiValidationError {
     Field: string,
     Message: string
+}
+
+export interface ApiErrorResponse {
+    Error: string,
+    Code: number,
+    Service?: string,
+    Status: number
 }
