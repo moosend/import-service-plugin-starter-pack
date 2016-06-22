@@ -101,7 +101,7 @@ This is purely a utility folder, any helper functions or classes you can put in 
 
 ### HTTPS
 
-Because this plugin will not work without https, it needs the appropriate ssl certificates which must be located in <root>/config/ssl. You can see an example self-signed certificate there.
+Plugins will not work without https.
 
 
 ### API documentation
